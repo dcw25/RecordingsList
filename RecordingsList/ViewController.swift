@@ -55,4 +55,11 @@ class RecordingViewController: UIViewController, AVAudioPlayerDelegate, AVAudioR
                 try? audioSession.setActive(false)
         }
     }
+       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if segue.identifier == "toFileListVC" {
+              let fileListVC = segue.destination as! FileListViewController
+               
+               fileListVC?.recordedAudioList = audioFilename
+           }
+}
 }
